@@ -34,7 +34,8 @@ namespace AreaConsoleApp
                 case 1:
                     Console.WriteLine("Задайте значение радиуса круга:");
                     var radius = TryParse();
-                    area = Circle.GetArea(radius);
+                    Circle circle = new(radius);
+                    area = circle.GetArea();
                     Console.WriteLine("Площадь круга составляет:");
                     Console.WriteLine("{0:0.0000}", area);
                     return;
@@ -45,10 +46,11 @@ namespace AreaConsoleApp
                     var sideB = TryParse();
                     Console.WriteLine("Задайте сторону C треугольника:");
                     var sideC = TryParse();
-                    area = Triangle.GetArea(sideA, sideB, sideC);
+                    Triangle triangle = new(sideA, sideB, sideC);
+                    area = triangle.GetArea();
                     Console.WriteLine("Площадь треугольника составляет:");
                     Console.WriteLine("{0:0.0000}", area);
-                    Triangle.RightTriangle(sideA, sideB, sideC);
+                    triangle.RightTriangle();
                     return;
                 default:
                     return;

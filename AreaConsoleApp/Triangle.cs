@@ -6,18 +6,29 @@ using System.Threading.Tasks;
 
 namespace AreaConsoleApp
 {
-    internal class Triangle
+    internal class Triangle : IFigure
     {
-        public static double GetArea(double sideA, double sideB, double sideC)
+        double SideA { get; set; }
+        double SideB { get; set; }
+        double SideC { get; set; }
+
+        public Triangle(double sideA, double sideB, double sideC)
         {
-            var s = 0.5 * (sideA + sideB + sideC);
-            var area = Math.Sqrt(s * (s - sideA) * (s - sideB) * (s - sideC));
+            SideA = sideA;
+            SideB = sideB;
+            SideC = sideC;
+        }
+
+        public double GetArea()
+        {
+            var s = 0.5 * (SideA + SideB + SideC);
+            var area = Math.Sqrt(s * (s - SideA) * (s - SideB) * (s - SideC));
             return area;
         }
 
-        public static void RightTriangle(double sideA, double sideB, double sideC)
+        public void RightTriangle()
         {
-            if (sideA * sideA + sideB * sideB == sideC * sideC)
+            if (SideA * SideA + SideB * SideB == SideC * SideC)
                 Console.WriteLine("Треугольник является прямоугольным");
         }
     }

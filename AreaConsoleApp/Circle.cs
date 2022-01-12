@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace AreaConsoleApp
 {
-    internal class Circle
+    internal class Circle: IFigure
     {
-        public static double GetArea(double radius)
+        double Radius { get; set; }
+
+        public Circle(double radius)
         {
-            var area = Math.PI * radius * radius;
+            Radius = radius;
+        }
+        public double GetArea()
+        {
+            var area = Math.PI * Radius * Radius;
             return area;
         }
     }
