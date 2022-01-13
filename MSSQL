@@ -1,0 +1,98 @@
+CREATE DATABASE Mindbox;
+GO
+
+USE Mindbox;
+
+CREATE TABLE Products
+(
+    Id INT IDENTITY PRIMARY KEY,
+    ProductName NVARCHAR(30) NOT NULL,
+);
+CREATE TABLE Categories
+(
+    Id INT IDENTITY PRIMARY KEY,
+    CategoryName NVARCHAR(30) NOT NULL
+);
+CREATE TABLE Summery
+(
+    Id INT IDENTITY PRIMARY KEY,
+    ProductId INT NOT NULL REFERENCES Products(Id) ON DELETE CASCADE,
+    CategoryId INT NOT NULL REFERENCES Categories(Id) ON DELETE CASCADE,
+);
+
+INSERT INTO Products
+VALUES ('Coffee Noir'), ('Tee Black Ahmed'), ('Tee Green Ahmed'), ('Vodka Smirnoff'), ('Coca-Cola'), 
+('Fanta'), ('Water Vitel'), ('Beer Budweiser'), ('Ginger beer'), ('Cidre Apple'), ('Paulaner 0,0%')
+
+INSERT INTO Categories
+VALUES ('Alcohol'), ('Tee'), ('Coffee'), ('Non alcoholic drinks'), ('Water'), ('Soda'), ('Cidre')
+
+INSERT INTO Summery
+VALUES
+(
+(SELECT Id FROM Products WHERE ProductName='Coffee Noir'),
+(SELECT Id FROM Categories WHERE CategoryName='Coffee')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Coffee Noir'),
+(SELECT Id FROM Categories WHERE CategoryName='Non alcoholic drinks')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Tee Black Ahmed'),
+(SELECT Id FROM Categories WHERE CategoryName='Tee')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Tee Black Ahmed'),
+(SELECT Id FROM Categories WHERE CategoryName='Non alcoholic drinks')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Tee Green Ahmed'),
+(SELECT Id FROM Categories WHERE CategoryName='Tee')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Tee Green Ahmed'),
+(SELECT Id FROM Categories WHERE CategoryName='Non alcoholic drinks')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Vodka Smirnoff'),
+(SELECT Id FROM Categories WHERE CategoryName='Alcohol')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Coca-Cola'),
+(SELECT Id FROM Categories WHERE CategoryName='Soda')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Coca-Cola'),
+(SELECT Id FROM Categories WHERE CategoryName='Non alcoholic drinks')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Fanta'),
+(SELECT Id FROM Categories WHERE CategoryName='Soda')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Fanta'),
+(SELECT Id FROM Categories WHERE CategoryName='Non alcoholic drinks')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Water Vitel'),
+(SELECT Id FROM Categories WHERE CategoryName='Water')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Beer Budweiser'),
+(SELECT Id FROM Categories WHERE CategoryName='Alcohol')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Cidre Apple'),
+(SELECT Id FROM Categories WHERE CategoryName='Cidre')
+),
+(
+(SELECT Id FROM Products WHERE ProductName='Cidre Apple'),
+(SELECT Id FROM Categories WHERE CategoryName='Alcohol')
+)
+
+SELECT P.ProductName, C.CategoryName
+FROM Products P
+LEFT JOIN Summery SM
+	ON P.Id = SM.ProductId
+LEFT JOIN Categories C
+	ON SM.CategoryId = C.Id;
