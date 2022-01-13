@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using AreaLibrary;
 
 namespace AreaConsoleApp
 {
@@ -17,7 +18,7 @@ namespace AreaConsoleApp
             Console.WriteLine("Введите цифру 1 для вычесления площади круга");
             Console.WriteLine("Введите цифру 2 для вычесления площади треугольника");
 
-            var selectNumber = 0;
+            int selectNumber;
             do
             {
                 isValid = int.TryParse(Console.ReadLine(), out selectNumber);
@@ -34,7 +35,7 @@ namespace AreaConsoleApp
                 case 1:
                     Console.WriteLine("Задайте значение радиуса круга:");
                     var radius = TryParse();
-                    Circle circle = new(radius);
+                    var circle = new Circle(radius);
                     area = circle.GetArea();
                     Console.WriteLine("Площадь круга составляет:");
                     Console.WriteLine("{0:0.0000}", area);
@@ -46,7 +47,7 @@ namespace AreaConsoleApp
                     var sideB = TryParse();
                     Console.WriteLine("Задайте сторону C треугольника:");
                     var sideC = TryParse();
-                    Triangle triangle = new(sideA, sideB, sideC);
+                    var triangle = new Triangle(sideA, sideB, sideC);
                     area = triangle.GetArea();
                     Console.WriteLine("Площадь треугольника составляет:");
                     Console.WriteLine("{0:0.0000}", area);

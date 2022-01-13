@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AreaConsoleApp
+﻿namespace AreaLibrary
 {
-    internal class Circle: IFigure
+    public class Circle: IFigure
     {
         double Radius { get; set; }
 
