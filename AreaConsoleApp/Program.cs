@@ -1,5 +1,5 @@
-﻿using System.Text;
-using AreaLibrary;
+﻿using AreaLibrary;
+using System.Text;
 
 namespace AreaConsoleApp
 {
@@ -38,7 +38,7 @@ namespace AreaConsoleApp
                     var circle = new Circle(radius);
                     area = circle.GetArea();
                     Console.WriteLine("Площадь круга составляет:");
-                    Console.WriteLine("{0:0.0000}", area);
+                    Console.WriteLine(area);
                     return;
                 case 2:
                     Console.WriteLine("Задайте сторону А треугольника:");
@@ -50,7 +50,7 @@ namespace AreaConsoleApp
                     var triangle = new Triangle(sideA, sideB, sideC);
                     area = triangle.GetArea();
                     Console.WriteLine("Площадь треугольника составляет:");
-                    Console.WriteLine("{0:0.0000}", area);
+                    Console.WriteLine(area);
                     triangle.RightTriangle();
                     return;
                 default:

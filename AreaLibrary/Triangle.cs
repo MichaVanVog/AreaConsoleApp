@@ -16,7 +16,7 @@
         public double GetArea()
         {
             var s = 0.5 * (SideA + SideB + SideC);
-            var area = Math.Sqrt(s * (s - SideA) * (s - SideB) * (s - SideC));
+            var area = Math.Round(Math.Sqrt(s * (s - SideA) * (s - SideB) * (s - SideC)), 4);
             return area;
         }
 

@@ -11,10 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaConsoleApp", "AreaConso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaTest", "AreaTest\AreaTest.csproj", "{AA5E21D2-BBE3-4D86-975D-B54F7F636BCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaLibrary", "AreaLibrary\AreaLibrary.csproj", "{2D0E84D1-42D6-4258-AC7A-F205C87354DC}"
-	ProjectSection(ProjectDependencies) = postProject
-		{AA5E21D2-BBE3-4D86-975D-B54F7F636BCC} = {AA5E21D2-BBE3-4D86-975D-B54F7F636BCC}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaLibrary", "AreaLibrary\AreaLibrary.csproj", "{2D0E84D1-42D6-4258-AC7A-F205C87354DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

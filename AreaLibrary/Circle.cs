@@ -1,6 +1,6 @@
 ﻿namespace AreaLibrary
 {
-    public class Circle: IFigure
+    public class Circle : IFigure
     {
         double Radius { get; set; }
 
@@ -10,7 +10,7 @@
         }
         public double GetArea()
         {
-            var area = Math.PI * Radius * Radius;
+            var area = Math.Round(Math.PI * Math.Pow(Radius, 2), 4);
             return area;
         }
     }
